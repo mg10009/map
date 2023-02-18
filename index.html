@@ -2,16 +2,27 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>율입시컨설팅</title>
+    <title>My Page</title>
     <link href="https://whattime.co.kr/widget/widget.css" rel="stylesheet">
     <script src="https://whattime.co.kr/widget/widget.js" type="text/javascript" async></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link href="styles.css" rel="stylesheet">
+    <style>
+      /* Center the table */
+      #map-table {
+        margin: 0 auto;
+      }
+      /* Center the map container */
+      .map-container {
+        text-align: center;
+      }
+    </style>
     <script>
       $(document).ready(function() {
         $.get("map.html", function(data) {
           var $mapContainer = $("<div></div>", {html: data, class: "map-container"});
-          $("body").append($mapContainer);
+          var $mapRow = $("<tr></tr>").append($("<td></td>").append($mapContainer));
+          var $mapTable = $("<table></table>", {id: "map-table"}).append($mapRow);
+          $("body").append($mapTable);
         });
       });
     </script>
