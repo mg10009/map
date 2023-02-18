@@ -1,20 +1,20 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>율입시컨설팅</title>
-  </head>
-  <body>
-    <div id="daumRoughmapContainer" style="width:640px;height:360px;"></div>
-    <script type="text/javascript">
-      setTimeout(function() {
-        new daum.roughmap.Lander({
-          "timestamp" : "1676720070338",
-          "key" : "2dsfc",
-          "mapWidth" : "640",
-          "mapHeight" : "360"
-        }).render();
-      }, 2000);
-    </script>
-    <script type="text/javascript" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-  </body>
+<head>
+	<meta charset="utf-8"/>
+	<title>Kakao 지도 시작하기</title>
+</head>
+<body>
+	<div id="map" style="width:500px;height:400px;"></div>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=70272719d6bab5804981b9c0d2381b74"></script>
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(33.450701, 126.570667),
+			level: 3
+		};
+
+		var map = new kakao.maps.Map(container, options);
+	</script>
+</body>
 </html>
