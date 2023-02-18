@@ -6,10 +6,17 @@
     <link href="https://whattime.co.kr/widget/widget.css" rel="stylesheet">
     <script src="https://whattime.co.kr/widget/widget.js" type="text/javascript" async></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      /* Center the map container */
+      .map-container {
+        text-align: center;
+      }
+    </style>
     <script>
       $(document).ready(function() {
         $.get("map.html", function(data) {
-          $("body").append(data);
+          var $mapContainer = $("<div></div>", {html: data, class: "map-container"});
+          $("body").append($mapContainer);
         });
       });
     </script>
