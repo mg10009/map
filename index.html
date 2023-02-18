@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Page Title</title>
+	<meta charset="UTF-8">
+	<title>Map with WhatTime Widget</title>
 	<link href="https://whattime.co.kr/widget/widget.css" rel="stylesheet">
 	<style>
-		#widget-container {
-			position: fixed;
-			bottom: 0;
-			right: 0;
-			padding: 10px;
-			background-color: #ffffff;
-			border: 1px solid #cccccc;
-			border-radius: 5px;
-			box-shadow: 2px 2px 5px #cccccc;
+		#map-container {
+			position: relative;
+			width: 640px;
+			height: 360px;
+			margin-bottom: 30px;
+		}
+		#wt-container {
+			position: sticky;
+			top: 50px;
+			margin-left: 20px;
+			width: 120px;
+			height: 120px;
+			z-index: 10;
 		}
 	</style>
 </head>
 <body>
-	<div id="whattime-widget" class="whattime-inline-widget" data-code="5XNL17BDGx" data-hide-info="true" style="min-width: 320px; height: 660px;"></div>
-
-	<div id="widget-container">
-		<a href="https://map.kakao.com/?urlX=984055&amp;urlY=471904&amp;itemId=1465131187&amp;q=%EC%9C%A8%EC%9E%85%EC%8B%9C%EC%BB%A8%EC%84%A4%ED%8C%85&amp;srcid=1465131187&amp;map_type=TYPE_MAP&amp;from=roughmap" target="_blank">
-			<img src="http://t1.daumcdn.net/roughmap/imgmap/8c1320a857ec54592000128eba6be3a91cd964be0911592c62972621481326d9" width="638" height="358" style="border: 1px solid rgb(204, 204, 204);">
-		</a>
-		<p>부산 해운대구 센텀북대로 60 센텀IS타워 2층 206호</p>
-		<p>051-921-1267</p>
+	<div id="map-container">
+		<div id="daumRoughmapContainer1676720070338" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+		<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+		<script charset="UTF-8">
+			new daum.roughmap.Lander({
+				"timestamp" : "1676720070338",
+				"key" : "2dsfc",
+				"mapWidth" : "640",
+				"mapHeight" : "360"
+			}).render();
+		</script>
 	</div>
-
-	<script src="https://whattime.co.kr/widget/widget.js" type="text/javascript" async></script>
-	<script>
-		window.onload = function() {
-			WhatTime.initBadgeWidget({
-				code: "5XNL17BDGx",
-				buttonText: "상담 예약",
-				buttonBackgroundColor: "#ffffff",
-				buttonTextColor: "#0EB27A",
-				backgroundColor: "",
-				buttonColor: "",
-				textColor: "",
-				hideInfo: true
-			});
-		};
-	</script>
+	<div id="wt-container">
+		<div class="whattime-inline-widget" data-code="5XNL17BDGx" data-hide-info="true" style="min-width: 120px; height: 120px;"></div>
+		<script src="https://whattime.co.kr/widget/widget.js" type="text/javascript" async></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				WhatTime.initBadgeWidget({
+					code: "5XNL17BDGx",
+					buttonText: "상담 예약",
+					buttonBackgroundColor: "#ffffff",
+					buttonTextColor: "#0EB27A",
+					backgroundColor: "",
+					buttonColor: "",
+					textColor: "",
+					hideInfo: true
+				});
+			};
+		</script>
+	</div>
 </body>
 </html>
